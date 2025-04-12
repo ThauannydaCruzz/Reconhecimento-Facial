@@ -28,7 +28,9 @@ def capturar_rosto():
 
             cv2.imshow('Video', frame)
             if cv2.waitKey(1) & 0xFF == ord('c'):
-                
+               
+                #rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                #rgb_frame = cv2.resize(frame, (0,0), fx=0.25, fy=0.25
                 rgb_frame = frame
 
                 if rgb_frame is None or rgb_frame.size == 0:
@@ -38,7 +40,7 @@ def capturar_rosto():
                 #if rgb_frame.dtype != np.uint8:
                 #    rgb_frame = rgb_frame.astype(np.uint8)
 
-              
+           
                 rosto_localizado = face_recognition.face_locations(rgb_frame)
 
                 if rosto_localizado:
@@ -117,6 +119,7 @@ def reconhecer_rosto():
         cv2.destroyAllWindows()
 
     threading.Thread(target=processo_reconhecimento).start()
+
 
 root = tk.Tk()
 root.title("Sistema de Reconhecimento Facial")
