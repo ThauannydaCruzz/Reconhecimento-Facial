@@ -16,4 +16,3 @@ O foco do projeto é fornecer uma maneira simples, porém eficiente, de identifi
 - 📸 **Detecção de Rostos:** Identifica e localiza rostos em imagens ou vídeos.
 - 🔒 **Reconhecimento Facial:** Compara rostos detectados com uma base de dados para identificação.
 - ⏱️ **Reconhecimento em Tempo Real:** Capacidade de processar e reconhecer rostos em tempo real através da webcam.
-- 🗂️ **Treinamento Simples:** Adicione novas imagens ao banco de dados para treinar o sistema de reconhecimento facial.
