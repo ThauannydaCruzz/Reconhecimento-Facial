@@ -1,13 +1,20 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from jose import JWTError, jwt
+from jose import jwt
 from passlib.context import CryptContext
 from schemas import RegisterSchema, LoginSchema, UserResponseSchema
-from models import User
+from models.user import User
 from database import get_db
+import os
+from dotenv import load_dotenv
 
-SECRET_KEY = "sua_chave_secreta_segura"
+# Carregar variáveis de ambiente
+load_dotenv()
+
+SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = "HS256"
+if not SECRET_KEY:
+    raise ValueError("SECRET_KEY não configurada!")
 
 router = APIRouter()
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
