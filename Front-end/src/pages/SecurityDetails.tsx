@@ -214,8 +214,8 @@ const SecurityDetails = () => {
           {/* Security Score Overview */}
           <Card className="mb-8 bg-gradient-to-br from-aegis-dark to-black border-aegis-purple/20">
             <CardContent className="p-6">
-              <h2 className="text-xl font-semibold mb-4 flex items-center">
-                <Shield className="h-5 w-5 text-aegis-purple mr-2" />
+              <h2 className="text-xl font-semibold mb-4 flex items-center text-white">
+                <Shield className="h-5 w-5 text-aegis-white mr-2 text-white" />
                 Visão Geral da Segurança
               </h2>
               
@@ -243,7 +243,7 @@ const SecurityDetails = () => {
           <Tabs defaultValue="activity" className="mb-8">
             <TabsList className="bg-gray-900/50 border border-gray-800">
               <TabsTrigger value="activity" className="data-[state=active]:bg-aegis-purple/20">
-                <Activity className="h-4 w-4 mr-2" />
+                <Activity className="h-4 w-4 mr-2 " />
                 Atividade
               </TabsTrigger>
               <TabsTrigger value="recommendations" className="data-[state=active]:bg-aegis-purple/20">
@@ -256,7 +256,7 @@ const SecurityDetails = () => {
               <Card className="bg-gradient-to-br from-aegis-dark to-black border-aegis-purple/20">
                 <CardHeader className="pb-2">
                   <div className="flex justify-between items-center">
-                    <CardTitle className="text-xl">Histórico de Segurança</CardTitle>
+                    <CardTitle className="text-xl text-white">Histórico de Segurança</CardTitle>
                     
                     <div className="flex space-x-2">
                       {/* Filter by severity */}
@@ -266,7 +266,7 @@ const SecurityDetails = () => {
                         className="relative"
                       >
                         <CollapsibleTrigger asChild>
-                          <Button variant="outline" size="sm" className="bg-black/20 border-gray-700">
+                          <Button variant="outline" size="sm" className="bg-black/20 border-gray-700 text-white">
                             <Filter className="h-4 w-4 mr-2" />
                             {selectedSeverity ? `Severidade: ${selectedSeverity}` : 'Filtrar'}
                           </Button>
@@ -312,7 +312,7 @@ const SecurityDetails = () => {
                         </CollapsibleContent>
                       </Collapsible>
                       
-                      <Button variant="outline" size="sm" className="bg-black/20 border-gray-700">
+                      <Button variant="outline" size="sm" className="bg-black/20 border-gray-700 text-white">
                         <Download className="h-4 w-4 mr-2" />
                         Exportar
                       </Button>
@@ -371,10 +371,10 @@ const SecurityDetails = () => {
             <TabsContent value="recommendations" className="mt-4">
               <Card className="bg-gradient-to-br from-aegis-dark to-black border-aegis-purple/20">
                 <CardHeader>
-                  <CardTitle className="text-xl">Recomendações de Segurança</CardTitle>
+                  <CardTitle className="text-xl ">Recomendações de Segurança</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-4">
+                  <div className="space-y-4 text-white">
                     {[
                       {
                         title: 'Habilite autenticação em dois fatores',

@@ -82,10 +82,10 @@ const SecurityDashboard = () => {
             <CardContent className={`${isMobile ? 'p-4' : 'p-6'}`}>
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className={`${isMobile ? 'text-lg' : 'text-xl'} font-semibold text-white mb-1`}>Score de Segurança</h2>
+                  <h2 className={`${isMobile ? 'text-lg' : 'text-xl'} font-semibold text-grey mb-1`}>Score de Segurança</h2>
                   <p className="text-emerald-400 text-sm">+12% desde o último mês</p>
                 </div>
-                <div className={`${isMobile ? 'text-4xl' : 'text-5xl'} font-bold text-white`}>78<span className={`${isMobile ? 'text-xl' : 'text-2xl'} text-emerald-400`}>/100</span></div>
+                <div className={`${isMobile ? 'text-4xl' : 'text-5xl'} font-bold text-purple`}>78<span className={`${isMobile ? 'text-xl' : 'text-2xl'} text-emerald-400`}>/100</span></div>
               </div>
               
               {/* Progress bar */}
@@ -96,7 +96,7 @@ const SecurityDashboard = () => {
               <div className="mt-4 grid grid-cols-1">
                 <Button 
                   variant="outline" 
-                  className="bg-black/10 border-white/10 text-white"
+                  className="bg-black/10 border-white/10 text-Green"
                   onClick={() => navigate('/security-details')}
                 >
                   Ver Detalhes

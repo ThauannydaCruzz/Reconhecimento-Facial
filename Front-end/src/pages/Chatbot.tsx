@@ -46,21 +46,25 @@ const Chatbot = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
   
+  // 1. Carrega nome do localStorage
   useEffect(() => {
-    // Get user name from localStorage if available
     const userProfile = localStorage.getItem('userProfile');
     if (userProfile) {
       try {
         const { name } = JSON.parse(userProfile);
         setUserName(name || '');
       } catch (e) {
-        console.error("Error parsing user profile", e);
+        console.error("Erro ao analisar userProfile", e);
+        setUserName('');
       }
     }
-    
+  }, []);
+
+  // 2. Só monta a saudação quando o nome estiver definido
+  useEffect(() => {
     const hour = new Date().getHours();
     let timeGreeting = "Olá";
-    
+
     if (hour >= 5 && hour < 12) {
       timeGreeting = "Bom dia";
     } else if (hour >= 12 && hour < 18) {
@@ -68,12 +72,19 @@ const Chatbot = () => {
     } else {
       timeGreeting = "Boa noite";
     }
-    
-    setGreeting(`${timeGreeting}${userName ? ', ' + userName : ''}`);
-    
+
+    const fullGreeting = `${timeGreeting}${userName ? ', ' + userName : ''}`;
+    setGreeting(fullGreeting);
+  }, [userName]);
+
+  // 3. Digita a pergunta só depois da saudação estar pronta
+  useEffect(() => {
+    if (!greeting) return;
+
     const fullQuestion = "Como posso ajudar você com sua segurança digital hoje?";
+    setQuestion('');
     let currentIndex = 0;
-    
+
     const typingInterval = setInterval(() => {
       if (currentIndex < fullQuestion.length) {
         setQuestion(prev => prev + fullQuestion.charAt(currentIndex));
@@ -82,15 +93,14 @@ const Chatbot = () => {
         clearInterval(typingInterval);
         setTimeout(() => {
           setShowOptions(true);
-          if (inputRef.current) {
-            inputRef.current.focus();
-          }
+          inputRef.current?.focus();
         }, 500);
       }
     }, 50);
-    
+
     return () => clearInterval(typingInterval);
-  }, []);
+  }, [greeting]);
+
   
   useEffect(() => {
     if (chatAreaRef.current) {
