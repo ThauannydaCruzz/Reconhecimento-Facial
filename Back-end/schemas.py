@@ -1,17 +1,18 @@
 from pydantic import BaseModel, EmailStr
 
-class RegisterSchema(BaseModel):
-    firstName: str
-    lastName: str
+class RegisterUser(BaseModel):
+    first_name: str
+    last_name: str
     email: EmailStr
     password: str
     country: str
+    agree_to_terms: bool
 
-class LoginSchema(BaseModel):
+class LoginUser(BaseModel):
     email: EmailStr
     password: str
 
-class UserResponseSchema(BaseModel):
+class UserResponse(BaseModel):
     id: int
     first_name: str
     last_name: str
@@ -19,4 +20,4 @@ class UserResponseSchema(BaseModel):
     country: str
 
     class Config:
-        orm_mode = True 
+        orm_mode = True

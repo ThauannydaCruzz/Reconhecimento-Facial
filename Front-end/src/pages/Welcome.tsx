@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { useNavigate } from 'react-router-dom';
@@ -83,7 +84,7 @@ const Welcome = () => {
       return () => clearInterval(expressionInterval);
     }
   }, [typingComplete]);
-
+  
   const handleNextClick = () => {
     navigate('/chatbot');
   };
@@ -127,7 +128,7 @@ const Welcome = () => {
           </div>
         </div>
       </div>
-
+      
       <div className="w-full max-w-md mx-auto text-center mb-10">
         <h1 className="text-3xl font-medium text-aegis-purple mb-2">
           Aegis Security
@@ -137,14 +138,14 @@ const Welcome = () => {
           <span className={`inline-block w-2 h-5 bg-white ml-1 ${typingComplete ? 'animate-pulse' : 'animate-[blink_1s_step-end_infinite]'}`}></span>
         </p>
       </div>
-
+      
       <Button 
         onClick={handleNextClick}
         className="w-full max-w-md bg-aegis-purple hover:bg-aegis-purple/90 text-white rounded-full py-6"
       >
         Prosseguir
       </Button>
-
+      
       <p className="text-white/60 text-sm mt-6 text-center max-w-md">
         O Aegis utiliza criptografia avançada para proteger seus dados.
         Suas informações nunca são compartilhadas com terceiros.
